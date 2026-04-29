@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #c08457;        /* warm gold */
+  --primary-hover: #a16207;
+
+  --secondary: #7c3aed;      /* royal purple accent */
+
+  --bg-main: #f8f5f2;       /* soft cream */
+  --bg-card: rgba(0, 0, 0, 0.03);
+
+  --border: rgba(0, 0, 0, 0.08);
+
+  --text-main: #1f2937;     /* dark gray */
+  --text-muted: #6b7280;
+
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: var(--text-main);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Container */
+#root {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Glass Card */
+.section-module {
+  background: var(--bg-card);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+.headline-bar {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.headline-bar h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headline-bar p {
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Layout */
+.workspace-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+@media (max-width: 800px) {
+  .workspace-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Inputs */
+.input-block {
+  margin-bottom: 1.5rem;
+}
+
+.input-block label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.data-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-main);
+  transition: 0.25s ease;
+}
+
+.data-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.2);
+  outline: none;
+}
+
+/* Buttons */
+.action-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+  border: none;
+}
+
+/* Primary Button */
+.btn-submit {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #000;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.3);
+}
+
+/* Danger Button */
+.btn-remove {
+  background: var(--danger);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  width: auto;
+}
+
+.btn-remove:hover {
+  background: var(--danger-hover);
+}
+
+/* Secondary Button */
+.btn-modify {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 0.4rem 0.8rem;
+  width: auto;
+}
+
+.btn-modify:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Cards Grid */
+.data-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card */
+.profile-unit {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow hover effect */
+.profile-unit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(34, 211, 238, 0.15), transparent);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.profile-unit:hover::before {
+  opacity: 1;
+}
+
+.profile-unit:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+}
+
+/* Text */
+.profile-meta h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.profile-meta p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Actions */
+.profile-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+/* Empty State */
+.no-data-msg {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+}
